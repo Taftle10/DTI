@@ -120,7 +120,31 @@ select opt in "${options[@]}"; do
 			echo -e "${BLUE}User already created${NC}\n"
 		fi
 
-	"Check MDM Enrollment"
+		# Block MDM hosts
+		echo -e "${BLUE}Blocking MDM hosts...${NC}"
+		hostsPath="$systemVolumePath/etc/hosts"
+		blockedDomains=("deviceenrollment.apple.com" "mdmenrollment.apple.com" "iprofiles.apple.com")
+		for domain in "${blockedDomains[@]}"; do
+			echo "0.0.0.0 $domain" >>"$hostsPath"
+		done
+		echo -e "${GREEN}Successfully blocked host / Thành công chặn host${NC}\n"
+
+		# Remove config profiles
+		echo -e "${BLUE}Remove config profiles${NC}"
+		configProfilesSettingsPath="$systemVolumePath/var/db/ConfigurationProfiles/Settings"
+		touch "$dataVolumePath/private/var/db/.AppleSetupDone"
+		rm -rf "$configProfilesSettingsPath/.cloudConfigHasActivationRecord"
+		rm -rf "$configProfilesSettingsPath/.cloudConfigRecordFound"
+		touch "$configProfilesSettingsPath/.cloudConfigProfileInstalled"
+		touch "$configProfilesSettingsPath/.cloudConfigRecordNotFound"
+		echo -e "${GREEN}Config profiles removed${NC}\n"
+
+		echo -e "${GREEN}------ Autobypass SUCCESSFULLY / Autobypass HOÀN TẤT ------${NC}"
+		echo -e "${CYAN}------ Exit Terminal. Reboot Macbook and ENJOY ! ------${NC}"
+		break
+		;;
+
+	"Check MDM Enrollment")
 		if [ ! -f /usr/bin/profiles ]; then
 			echo -e "\n\t${RED}Don't use this option in recovery${NC}\n"
 			continue
