@@ -66,7 +66,7 @@ echo -e "${CYAN}*-------------------*---------------------*${NC}"
 echo ""
 
 PS3='Please enter your choice: '
-options=("Autoypass on Recovery" "Check MDM Enrollment" "Reboot" "Exit")
+options=("Autoypass on Recovery" "Reboot" "Exit")
 
 select opt in "${options[@]}"; do
 	case $opt in
@@ -119,19 +119,6 @@ select opt in "${options[@]}"; do
 		else
 			echo -e "${BLUE}User already created${NC}\n"
 		fi
-
-	"Check MDM Enrollment")
-		if [ ! -f /usr/bin/profiles ]; then
-			echo -e "\n\t${RED}Don't use this option in recovery${NC}\n"
-			continue
-		fi
-
-		if ! sudo profiles show -type enrollment >/dev/null 2>&1; then
-			echo -e "\n\t${GREEN}Success${NC}\n"
-		else
-			echo -e "\n\t${RED}Failure${NC}\n"
-		fi
-		;;
 
 	"Reboot")
 		echo -e "\n\t${BLUE}Rebooting...${NC}\n"
