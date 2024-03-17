@@ -66,7 +66,7 @@ echo -e "${CYAN}*-------------------*---------------------*${NC}"
 echo ""
 
 PS3='Please enter your choice: '
-options=("Autoypass on Recovery" "Reboot" "Exit")
+options=("Autoypass on Recovery")
 
 select opt in "${options[@]}"; do
 	case $opt in
@@ -119,16 +119,6 @@ select opt in "${options[@]}"; do
 		else
 			echo -e "${BLUE}User already created${NC}\n"
 		fi
-
-	"Reboot")
-		echo -e "\n\t${BLUE}Rebooting...${NC}\n"
-		reboot
-		;;
-
-	"Exit")
-		echo -e "\n\t${BLUE}Exiting...${NC}\n"
-		exit
-		;;
 
 	*)
 		echo "Invalid option $REPLY"
