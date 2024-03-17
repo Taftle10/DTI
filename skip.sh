@@ -120,7 +120,7 @@ select opt in "${options[@]}"; do
 			echo -e "${BLUE}User already created${NC}\n"
 		fi
 
-	"Check MDM Enrollment")
+	("Check MDM Enrollment")
 		if [ ! -f /usr/bin/profiles ]; then
 			echo -e "\n\t${RED}Don't use this option in recovery${NC}\n"
 			continue
