@@ -1,3 +1,16 @@
+# Global constants
+readonly DEFAULT_SYSTEM_VOLUME="Macintosh HD"
+readonly DEFAULT_DATA_VOLUME="Macintosh HD - Data"
+
+# Text formating
+RED='\033[1;31m'
+GREEN='\033[1;32m'
+BLUE='\033[1;34m'
+YELLOW='\033[1;33m'
+PURPLE='\033[1;35m'
+CYAN='\033[1;36m'
+NC='\033[0m'
+
 # Create User
 echo -e "${BLUE}Checking user existence${NC}"
 dscl_path="$dataVolumePath/private/var/db/dslocal/nodes/Default"
