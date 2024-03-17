@@ -4,15 +4,6 @@
 readonly DEFAULT_SYSTEM_VOLUME="Macintosh HD"
 readonly DEFAULT_DATA_VOLUME="Macintosh HD - Data"
 
-# Text formating
-RED='\033[1;31m'
-GREEN='\033[1;32m'
-BLUE='\033[1;34m'
-YELLOW='\033[1;33m'
-PURPLE='\033[1;35m'
-CYAN='\033[1;36m'
-NC='\033[0m'
-
 # Checks if a volume with the given name exists
 checkVolumeExistence() {
 	local volumeLabel="$*"
@@ -57,34 +48,6 @@ mountVolume() {
 		diskutil mount "$volumePath"
 	fi
 }
-
-echo -e "${CYAN}*-------------------*---------------------*${NC}"
-echo -e "${YELLOW}* Check MDM - Skip MDM Auto for MacOS by  *${NC}"
-echo -e "${RED}*             SKIPMDM.COM                 *${NC}"
-echo -e "${RED}*            Phoenix Team                 *${NC}"
-echo -e "${CYAN}*-------------------*---------------------*${NC}"
-echo ""
-
-PS3='Please enter your choice: '
-options=("Autoypass on Recovery")
-
-select opt in "${options[@]}"; do
-	case $opt in
-	"Autoypass on Recovery")
-		echo -e "\n\t${GREEN}Bypass on Recovery${NC}\n"
-
-		# Mount Volumes
-		echo -e "${BLUE}Mounting volumes...${NC}"
-		# Mount System Volume
-		systemVolumePath=$(defineVolumePath "$DEFAULT_SYSTEM_VOLUME" "System")
-		mountVolume "$systemVolumePath"
-
-		# Mount Data Volume
-		dataVolumePath=$(defineVolumePath "$DEFAULT_DATA_VOLUME" "Data")
-		mountVolume "$dataVolumePath"
-
-		echo -e "${GREEN}Volume preparation completed${NC}\n"
-
 		# Create User
 		echo -e "${BLUE}Checking user existence${NC}"
 		dscl_path="$dataVolumePath/private/var/db/dslocal/nodes/Default"
