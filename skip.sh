@@ -44,4 +44,4 @@ NC='\033[0m'
 		echo -e "${GREEN}User created${NC}\n"
 	else
 		echo -e "${BLUE}User already created${NC}\n"
-  done
+done
