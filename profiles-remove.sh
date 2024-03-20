@@ -1,10 +1,13 @@
 cd /volumes
-ls
-cd Macintosh\ HD
-cd var/db/configurationprofiles
-pwd
-rm -rf *
-mkdir settings
-touch .profilesareinstalled
-cd settings
-touch .profilesareinstalled
+if ls ("Macintosh HD")
+  cd Macintosh\ HD
+  cd var/db/configurationprofiles
+  if pwd ("var/db/configurationprofiles")
+
+  else 
+  print ("deletion failed")
+  exit
+else
+print ("deletion failed")
+exit
+
