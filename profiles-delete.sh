@@ -5,7 +5,7 @@ if ls [Macintosh HD]
   cd var/db/configurationprofiles
   if pwd [var/db/configurationprofiles]
   then
-  else 
+else 
   print ("deletion failed")
   exit
 else
