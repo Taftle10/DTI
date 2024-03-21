@@ -4,5 +4,5 @@ read UnzipFile
 cd Desktop
 unzip $UnzipFile
 
-echo "Process Complete, Exiting Terminal"
+echo "Process Complete, Closing Instance"
 exit
