@@ -12,5 +12,5 @@ read NewFile
 cd Desktop
 cat $PhotoImage $ZipFile > $NewFile
 
-echo "Process Complete, Closing Process"
+echo "Process Complete, Closing Instance"
 exit
