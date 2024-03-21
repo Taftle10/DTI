@@ -3,3 +3,6 @@ read UnzipFile
 
 cd Desktop
 unzip $UnzipFile
+
+echo "Process Complete, Exiting Terminal"
+exit
