@@ -1,4 +1,4 @@
-echo "DO NOT ADD ANY SPACES TO YOUR FILES WHEN CREATING THEM"
+echo "DO NOT ADD ANY SPACES TO YOUR FILES WHEN CREATING THEM, THE FILE MUST BE ON YOUR DESKTOP"
 
 echo "What is the name of your photo image (add .png or .jpeg or whatever photo type your image is)?"
 read PhotoImage
